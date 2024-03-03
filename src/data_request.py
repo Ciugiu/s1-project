@@ -11,7 +11,7 @@ def connect():
 
 def retrieve(query: str, params):
     mysql = connect()
-    cursor = mysql.cursor(dictionary=True)
+    cursor = mysql.cursor()
     cursor.execute(query, params)
     result = cursor.fetchall()
     cursor.close()
