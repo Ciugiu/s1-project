@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,3 +18,24 @@
     ></script>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/footer.css') }}"
+    />
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+    <script
+      rel="text/javascript"
+      src="{{ url_for('static', filename='js/footer.js') }}"
+    ></script>
+  </body>
+</html>
+>>>>>>> e8b59a0471c883f3840e95294ddf0e06a44744d4
