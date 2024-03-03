@@ -78,13 +78,13 @@ def index():
     return render_template('index.html', student_population=student_population_sorted, overall_attendance=overall_attendance)
 
 @app.route('/populations/<course>/<period>/<year>', methods=['GET'])
-def other_page(course, period, year):
+def populations(course, period, year):
     cpy = course, period, year
 
     with open('src/sql_scripts/students_table.sql', 'r') as file:
         querry = file.read()
 
-    params = (course, period, year)
+    params = (course, year, period)
 
     raw_student_table = data_request.retrieve(querry, params)
 

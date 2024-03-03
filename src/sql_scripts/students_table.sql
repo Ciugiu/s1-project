@@ -39,7 +39,8 @@ FROM (
             ) AS cn ON cn.COURSE_CODE  = GRADE_COURSE_CODE_REF
             GROUP BY 
                 GRADE_COURSE_CODE_REF,
-                GRADE_STUDENT_EPITA_EMAIL_REF
+                GRADE_STUDENT_EPITA_EMAIL_REF,
+                cn.COURSE_NAME
             ORDER BY 
                 GRADE_STUDENT_EPITA_EMAIL_REF
         ) g
