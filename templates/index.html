@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% block head %}
+<title>Home Page</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+{% endblock %} {% block body %}
+<h1>Welcome,</h1>
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+<table>
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td>
+            <h2><b>Active Populations</b></h2>
+          </td>
+        </tr>
+        <tr>
+          <!-- Active Population List -->
+          <td>
+            <table>
+              {% for row in student_population %}
+              <tr>
+                {% for cell in row %}
+                <td>
+                  <a
+                    class="full-cell-link"
+                    href="/populations/{{ row.item[0] }}/{{ row.item[1] }}/{{ row.item[2] }}"
+                  >
+                    {{ cell }}
+                  </a>
+                </td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </table>
+          </td>
+          <!-- Active Popoulation Graph -->
+          <td>
+            <img
+              src="{{ url_for('static', filename='first_chart.png') }}"
+              alt="Chart"
+            />
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <td>
+            <h2><b>Overall Attendance</b></h2>
+          </td>
+        </tr>
+        <tr>
+          <!-- Overall Attendace List -->
+          <td>
+            <table>
+              {% for row in overall_attendance %}
+              <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </table>
+          </td>
+          <!-- Overall Attendace Chart -->
+          <td>
+            <img
+              src="{{ url_for('static', filename='second_chart.png') }}"
+              alt="Chart"
+            />
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div id="footer">
+  <footer>Website last generation:</footer>
+</div>
+{% endblock %}
