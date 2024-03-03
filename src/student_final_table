@@ -3,14 +3,14 @@ SELECT
     CONTACT_FIRST_NAME, 
     CONTACT_LAST_NAME, 
     COURSE_NAME, 
-    summm/couuunt AS summ
+    sum_in/cnt AS sum_out
 FROM (
     SELECT 
         GRADE_STUDENT_EPITA_EMAIL_REF, 
         GRADE_COURSE_CODE_REF,
         cn.COURSE_NAME, 
-        SUM(GRADE_SCORE) AS summm, 
-        COUNT(GRADE_SCORE) AS couuunt
+        SUM(GRADE_SCORE) AS sum_in, 
+        COUNT(GRADE_SCORE) AS cnt
     FROM 
         GRADES
     JOIN (
