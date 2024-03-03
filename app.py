@@ -34,7 +34,7 @@ def index():
     # Process the data for active_population
     student_population = []
     for item in raw_student_population:
-        new_item = (item[0], '-', ' ', item[1][0] + str(item[2]), '(' + str(item[3]) + ')')
+        new_item = (item[0], '-', item[1][0] + str(item[2]), '(' + str(item[3]) + ')')
         student_population.append(new_item)
 
     student_population_sorted = sorted(student_population, key=lambda x: x[0])
