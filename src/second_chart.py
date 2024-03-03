@@ -42,9 +42,9 @@ def create_chart(data):
     ax.yaxis.set_major_formatter(yticks)
 
     # Set the x-axis labels and title
-    ax.set_xlabel('Label')
+    ax.set_xlabel('Course')
     ax.set_ylabel('Value')
-    ax.set_title('Values by label and year')
+    ax.set_title('Values by course and year')
 
     # Set the x-axis tick labels
     ax.set_xticks(label_positions + bar_width / 2)
