@@ -1,10 +1,29 @@
 {% extends 'base.html' %} {% block head %}
 <title>Populations</title>
-<h1>Populaions - {{ cps[0] }} {{ cps[1][0] }}{{ cps[2] }}</h1>
+<h1>Populaions - {{ cpy[0] }} {{ cpy[1][0] }}{{ cpy[2] }}</h1>
 {% endblock %} {% block body %}
 <br /><br /><br /><br /><br /><br /><br /><br />
 <h2>Students</h2>
-<table id="table">
-    
+<table border="1" id="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>email</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>passed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in student_table %}
+    <tr>
+      <td>{{ student[0] }}</td>
+      <td>{{ student[1] }}</td>
+      <td>{{ student[2] }}</td>
+      <td>{{ student[3] }}</td>
+      <td>{{ student[4] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
 {% endblock %}
