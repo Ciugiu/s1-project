@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 SELECT 
     ap.student_population_code_ref, 
     ap.student_population_period_ref, 
@@ -13,20 +12,4 @@ GROUP BY
     ap.student_population_period_ref, 
     ap.student_population_year_ref
 ORDER BY 
-=======
-SELECT 
-    ap.student_population_code_ref, 
-    ap.student_population_period_ref, 
-    ap.student_population_year_ref, 
-    SUM(att.attendance_presence)*100/COUNT(*) as percents
-FROM 
-    attendance as att
-INNER JOIN 
-    students as ap ON ap.student_epita_email = att.attendance_student_ref
-GROUP BY 
-    ap.student_population_code_ref, 
-    ap.student_population_period_ref, 
-    ap.student_population_year_ref
-ORDER BY 
->>>>>>> e8b59a0471c883f3840e95294ddf0e06a44744d4
     percents DESC
