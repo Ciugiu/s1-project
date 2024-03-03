@@ -93,10 +93,15 @@ def populations(course, period, year):
         new_item = (item[0], item[1], item[2], item[3])
         student_table.append(new_item)
 
-    # student_table_sorted = sorted(student_table, key=lambda x: x[0])
+    with open('src/sql_scripts/courses_table.sql', 'r') as file:
+        querry = file.read()
+
+    params = (course, year, period)
+
+    raw_courses_table = data_request.retrieve(querry, params)
 
     # This is the other page you want to redirect to
-    return render_template('populations.html', cpy=cpy, student_table=student_table)
+    return render_template('populations.html', cpy=cpy, student_table=student_table, courses_table=raw_courses_table)
 
 if __name__ == '__main__':
     app.run(debug=True)
