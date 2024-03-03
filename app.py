@@ -74,7 +74,11 @@ def other_page(course, period, year):
     cpy = course, period, year
 
     with open('src/students_table', 'r') as file:
-        raw_student_table = data_request.retrieve(file.read())
+        querry = file.read()
+
+    params = (course, period, year)
+
+    raw_student_table = data_request.retrieve(querry, params)
 
     student_table = []
     for item in raw_student_table:
@@ -84,7 +88,7 @@ def other_page(course, period, year):
     student_table_sorted = sorted(student_table, key=lambda x: x[0])
 
     # This is the other page you want to redirect to
-    return render_template('populations.html', cpy=cpy, student_table=student_table_sorted)
+    return render_template('populations.html', cpy=cpy, student_table=student_table)
 
 if __name__ == '__main__':
     app.run(debug=True)

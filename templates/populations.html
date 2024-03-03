@@ -26,4 +26,27 @@
     {% endfor %}
   </tbody>
 </table>
+<br><br><br><br><br><br>
+<table border="1" id="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>email</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>passed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in student_table %}
+    <tr>
+      <td>{{ student[0] }}</td>
+      <td>{{ student[1] }}</td>
+      <td>{{ student[2] }}</td>
+      <td>{{ student[3] }}</td>
+      <td>{{ student[4] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
