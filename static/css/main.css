@@ -6,3 +6,9 @@
   font-style: italic;
   font-size: 20px; /* Adjust as needed */
 }
+.full-cell-link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
