@@ -29,8 +29,15 @@
                     <a
                       class="full-cell-link"
                       href="/populations/{{ row[0] }}/{{ row[1] }}/{{ row[2] }}"
-                      >{{ row[0] }} - {{ row[1][0] }}({{ row[2] }}({{ row[3]
-                      }}))
+                      ><table>
+                        <tr>
+                          <td>{{ row[0] }}</td>
+                          <td>-</td>
+                          <td>{{ row[1][0] }}{{ row[2] }}</td>
+                          <td></td>
+                          <td>({{ row[3]}})</td>
+                        </tr>
+                      </table>
                     </a>
                   </u>
                 </td>
@@ -61,9 +68,16 @@
             <table>
               {% for row in overall_attendance %}
               <tr>
-                {% for cell in row %}
-                <td>{{ cell }}</td>
-                {% endfor %}
+                <td>
+                  <table>
+                    <tr>
+                      <td>{{ row[0] }}</td>
+                      <td>-</td>
+                      <td>{{ row[1][0] }}{{ row[2] }}</td>
+                      <td>({{ row[3]}})</td>
+                    </tr>
+                  </table>
+                </td>
               </tr>
               {% endfor %}
             </table>
