@@ -34,7 +34,7 @@ def index():
     # Process the data for active_population
     student_population = []
     for item in raw_student_population:
-        new_item = (item[0], '-', item[1][0] + str(item[2]), '(' + str(item[3]) + ')')
+        new_item = (item[0], item[1], item[2], item[3])
         student_population.append(new_item)
 
     student_population_sorted = sorted(student_population, key=lambda x: x[0])
@@ -49,7 +49,7 @@ def index():
     # Process the data for overall_attendance
     overall_attendance = []
     for item in raw_overall_attendance:
-        new_item = (item[0], '-', ' ', item[1][0] + str(item[2]), '(' + (f"{round(item[-1])}%" + ')'))
+        new_item = (item[0], item[1], item[2],f"{round(item[-1])}%")
         overall_attendance.append(new_item)
 
     # Sort the data for overall_attendance
@@ -64,13 +64,13 @@ def index():
 
     if course and year and period:
         # If all parameters exist, redirect to another page
-        return redirect(url_for('populations/<course>/<period>/<year>',course=course, year=year, period=period))
+        return redirect(url_for('populations/<course>/<period>/<year>'))
 
     # Render the template
-    return render_template('index.html', student_population=student_population_sorted, overall_attendance=overall_attendance, course=course, year=year, period=period)
+    return render_template('index.html', student_population=student_population_sorted, overall_attendance=overall_attendance)
 
 @app.route('/populations/<course>/<period>/<year>', methods=['GET'])
-def other_page():
+def other_page(course, period, year):
     # This is the other page you want to redirect to
     return render_template('other_page.html')
 
