@@ -1,11 +1,12 @@
 import mysql.connector
+from src.data_request_ids import host, user, password, database
 
 def connect():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd="123456",
-        database="project"
+        host=host,
+        user=user,
+        passwd=password,
+        database=database
     )
 
 def retrieve(query: str):
