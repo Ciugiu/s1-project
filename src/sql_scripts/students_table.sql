@@ -2,8 +2,7 @@ SELECT
     STUDENT_CONTACT_REF, 
     CONTACT_FIRST_NAME, 
     CONTACT_LAST_NAME, 
-    passed, 
-    everything
+    passed
 FROM (
     SELECT 
         GRADE_STUDENT_EPITA_EMAIL_REF, 
@@ -15,8 +14,7 @@ FROM (
         CONTACT_LAST_NAME, 
         COUNT(
             CASE WHEN sum_out > 10 THEN 1 END
-        ) AS passed, 
-        COUNT(*) AS everything 
+        ) AS passed
     FROM (
         SELECT 
             *, 
@@ -36,7 +34,7 @@ FROM (
                     COURSE_NAME  
                 FROM 
                     COURSES
-            ) AS cn ON cn.COURSE_CODE  = GRADE_COURSE_CODE_REF
+            ) AS cn ON cn.COURSE_CODE = GRADE_COURSE_CODE_REF
             GROUP BY 
                 GRADE_COURSE_CODE_REF,
                 GRADE_STUDENT_EPITA_EMAIL_REF,
