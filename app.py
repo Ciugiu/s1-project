@@ -71,10 +71,20 @@ def index():
 
 @app.route('/populations/<course>/<period>/<year>', methods=['GET'])
 def other_page(course, period, year):
-    cps = course, period, year
+    cpy = course, period, year
+
+    with open('src/students_table', 'r') as file:
+        raw_student_table = data_request.retrieve(file.read(), course, period, year)
+
+    student_table = []
+    for item in raw_student_table:
+        new_item = (item[0], item[1], item[2], item[3])
+        student_table.append(new_item)
+
+    student_table_sorted = sorted(student_table, key=lambda x: x[0])
 
     # This is the other page you want to redirect to
-    return render_template('populations.html', cps=cps)
+    return render_template('populations.html', cpy=cpy, student_table=student_table_sorted)
 
 if __name__ == '__main__':
     app.run(debug=True)
