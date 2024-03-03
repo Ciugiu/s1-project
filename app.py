@@ -28,8 +28,12 @@ def login():
 @app.route('/index')
 def index():
     # Get the data for active_population
-    with open('src/active_population', 'r') as file:
-        raw_student_population = data_request.retrieve(file.read())
+    with open('src/active_population.sql', 'r') as file:
+        querry = file.read()
+
+    params = None
+
+    raw_student_population = data_request.retrieve(querry, params)
 
     # Process the data for active_population
     student_population = []
@@ -43,8 +47,12 @@ def index():
     first_chart.create_chart(raw_student_population)
 
     # Get the data for overall_attendance
-    with open('src/overall_attendance', 'r') as file:
-        raw_overall_attendance = data_request.retrieve(file.read())
+    with open('src/overall_attendance.sql', 'r') as file:
+        querry = file.read()
+
+    params = None
+
+    raw_overall_attendance = data_request.retrieve(querry, params)
 
     # Process the data for overall_attendance
     overall_attendance = []
@@ -73,7 +81,7 @@ def index():
 def other_page(course, period, year):
     cpy = course, period, year
 
-    with open('src/students_table', 'r') as file:
+    with open('src/students_table.sql', 'r') as file:
         querry = file.read()
 
     params = (course, period, year)
