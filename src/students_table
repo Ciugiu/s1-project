@@ -3,7 +3,7 @@ SELECT
     CONTACT_FIRST_NAME, 
     CONTACT_LAST_NAME, 
     passed, 
-    allll
+    everything,
 FROM (
     SELECT 
         GRADE_STUDENT_EPITA_EMAIL_REF, 
@@ -14,20 +14,20 @@ FROM (
         CONTACT_FIRST_NAME, 
         CONTACT_LAST_NAME, 
         COUNT(
-            CASE WHEN SUMM > 10 THEN 1 END
+            CASE WHEN sum_out > 10 THEN 1 END
         ) AS passed, 
-        COUNT(*) AS allll 
+        COUNT(*) AS everything 
     FROM (
         SELECT 
             *, 
-            summm/couuunt AS summ
+            sum_in/cnt AS sum_out
         FROM (
             SELECT 
                 GRADE_STUDENT_EPITA_EMAIL_REF,
                 GRADE_COURSE_CODE_REF,
                 cn.COURSE_NAME,
-                SUM(GRADE_SCORE) AS summm,
-                COUNT(GRADE_SCORE) AS couuunt
+                SUM(GRADE_SCORE) AS sum_in,
+                COUNT(GRADE_SCORE) AS cnt
             FROM 
                 GRADES
             JOIN (
@@ -58,6 +58,6 @@ FROM (
         CONTACT_LAST_NAME
 ) sub2
 WHERE 
-    STUDENT_POPULATION_CODE_REF = %s
-    AND STUDENT_POPULATION_YEAR_REF = %s
-    AND STUDENT_POPULATION_PERIOD_REF = %s
+    STUDENT_POPULATION_CODE_REF = :course
+    AND STUDENT_POPULATION_YEAR_REF = :year
+    AND STUDENT_POPULATION_PERIOD_REF = :period

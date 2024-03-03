@@ -74,7 +74,7 @@ def other_page(course, period, year):
     cpy = course, period, year
 
     with open('src/students_table', 'r') as file:
-        raw_student_table = data_request.retrieve(file.read(), course, period, year)
+        raw_student_table = data_request.retrieve(file.read())
 
     student_table = []
     for item in raw_student_table:
