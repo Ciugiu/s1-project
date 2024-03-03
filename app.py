@@ -28,7 +28,7 @@ def login():
 @app.route('/index')
 def index():
     # Get the data for active_population
-    with open('src/active_population.sql', 'r') as file:
+    with open('src/sql_scripts/active_population.sql', 'r') as file:
         querry = file.read()
 
     params = None
@@ -47,7 +47,7 @@ def index():
     first_chart.create_chart(raw_student_population)
 
     # Get the data for overall_attendance
-    with open('src/overall_attendance.sql', 'r') as file:
+    with open('src/sql_scripts/overall_attendance.sql', 'r') as file:
         querry = file.read()
 
     params = None
@@ -81,7 +81,7 @@ def index():
 def other_page(course, period, year):
     cpy = course, period, year
 
-    with open('src/students_table.sql', 'r') as file:
+    with open('src/sql_scripts/students_table.sql', 'r') as file:
         querry = file.read()
 
     params = (course, period, year)
