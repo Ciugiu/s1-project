@@ -93,7 +93,7 @@ def populations(course, period, year):
         new_item = (item[0], item[1], item[2], item[3])
         student_table.append(new_item)
 
-    student_table_sorted = sorted(student_table, key=lambda x: x[0])
+    # student_table_sorted = sorted(student_table, key=lambda x: x[0])
 
     # This is the other page you want to redirect to
     return render_template('populations.html', cpy=cpy, student_table=student_table)
