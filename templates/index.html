@@ -24,16 +24,16 @@
             <table>
               {% for row in student_population %}
               <tr>
-                {% for cell in row %}
                 <td>
-                  <a
-                    class="full-cell-link"
-                    href="/populations/{{ row[0] }}/{{ row[2] }}/{{ row[3] }}"
-                  >
-                    {{ cell }}
-                  </a>
+                  <u>
+                    <a
+                      class="full-cell-link"
+                      href="/populations/{{ row[0] }}/{{ row[1] }}/{{ row[2] }}"
+                      >{{ row[0] }} - {{ row[1][0] }}({{ row[2] }}({{ row[3]
+                      }}))
+                    </a>
+                  </u>
                 </td>
-                {% endfor %}
               </tr>
               {% endfor %}
             </table>
