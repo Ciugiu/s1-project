@@ -10,8 +10,10 @@ def create_chart(data):
         new_item = (item[0], item[1][:1] + ' ' + str(item[2]), round(item[3]))
         processed_data.append(new_item)
 
+    student_population_sorted = sorted(processed_data, key=lambda x: x[0])
+
     # Create a DataFrame
-    df = pd.DataFrame(processed_data, columns=['Label', 'Year', 'Value'])
+    df = pd.DataFrame(student_population_sorted, columns=['Label', 'Year', 'Value'])
 
     # Get the unique labels and years
     labels = df['Label'].unique()
