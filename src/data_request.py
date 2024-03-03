@@ -17,7 +17,7 @@ def retrieve(query: str):
     mysql.close()
     return result
 
-#with open('src/active_population', 'r') as file:
+#with open('src/name_of_file', 'r') as file:
 #    raw_student_population = retrieve(file.read())
 #
 #print(raw_student_population)
