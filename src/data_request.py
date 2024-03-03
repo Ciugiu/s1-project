@@ -9,10 +9,10 @@ def connect():
         database=database
     )
 
-def retrieve(query: str):
+def retrieve(query: str, params):
     mysql = connect()
     cursor = mysql.cursor()
-    cursor.execute(query)
+    cursor.execute(query, params)
     result = cursor.fetchall()
     cursor.close()
     mysql.close()
