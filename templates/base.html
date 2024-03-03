@@ -11,6 +11,9 @@
   </head>
   <body>
     {% block body %}{% endblock %}
+    <div id="footer">
+      <footer>Website last generation:</footer>
+    </div>
     <script
       rel="text/javascript"
       src="{{ url_for('static', filename='js/footer.js') }}"

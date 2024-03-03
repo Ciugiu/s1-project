@@ -13,7 +13,7 @@ def login():
         database = request.form.get('database')
 
         # Save the connection details in a file
-        with open('data_request.py', 'w') as f:
+        with open('src/data_request_ids.py', 'w') as f:
             f.write(f"host = '{host}'\n")
             f.write(f"user = '{user}'\n")
             f.write(f"password = '{password}'\n")
@@ -71,8 +71,10 @@ def index():
 
 @app.route('/populations/<course>/<period>/<year>', methods=['GET'])
 def other_page(course, period, year):
+    cps = course, period, year
+
     # This is the other page you want to redirect to
-    return render_template('other_page.html')
+    return render_template('populations.html', cps=cps)
 
 if __name__ == '__main__':
     app.run(debug=True)
