@@ -67,10 +67,11 @@
                 <td>
                   <table>
                     <tr>
-                      <td>{{ row[0] }}</td>
-                      <td style="padding-left: 10px"></td>
-                      <td>{{ row[1][0] }}{{ row[2] }}</td>
-                      <td>({{ row[3]}})</td>
+                      <div class="flex-container">
+                        <div>{{ row[0] }}</div>
+                        <div style="padding: 10px"></div>
+                        <div>{{ row[1][0] }}{{ row[2] }}({{ row[3]}})</div>
+                      </div>
                     </tr>
                   </table>
                 </td>
