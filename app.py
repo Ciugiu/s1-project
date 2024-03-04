@@ -77,8 +77,8 @@ def index():
     # Render the template
     return render_template('index.html', student_population=student_population_sorted, overall_attendance=overall_attendance)
 
-@app.route('/populations/<course>/<period>/<year>', methods=['GET'])
-def populations(course, period, year):
+@app.route('/populations/<year>/<period>/<course>', methods=['GET'])
+def populations(year, period, course):
     cpy = course, period, year
 
     with open('src/sql_scripts/students_table.sql', 'r') as file:
@@ -100,8 +100,28 @@ def populations(course, period, year):
 
     raw_courses_table = data_request.retrieve(querry, params)
 
-    # This is the other page you want to redirect to
+    # This is the populations you want to redirect to
     return render_template('populations.html', cpy=cpy, student_table=student_table, courses_table=raw_courses_table)
+
+@app.route('/grades/<year>/<period>/<course>', methods=['GET'])
+def grades(year, period, course):
+    cpy = course, period, year
+
+    with open('src/sql_scripts/student_final_table.sql', 'r') as file:
+        querry = file.read()
+
+    params = (period, year, course)
+
+    raw_grades_table = data_request.retrieve(querry, params)
+
+    grades_table = []
+    for item in raw_grades_table:
+        new_item = (item[0], item[1], item[2], item[3], item[4])
+        grades_table.append(new_item)
+
+    # This is the gades you want to redirect to
+    return render_template('grades.html', cpy=cpy, grades_table=grades_table)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

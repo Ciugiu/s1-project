@@ -1,9 +1,33 @@
-{{extends 'base.html'}}
-
-{{block head}}
-
-{{endblock}}
-
-{{block body}}
-
-{{endblock}}
+{% extends 'base.html' %} 
+{% block head %}
+<title>Grades</title>
+<h1>Grades - {{ cpy[0] }} {{ cpy[1][0] }}{{ cpy[2] }}</h1>
+{% endblock %} 
+{% block body %}
+<br /><br /><br /><br /><br /><br /><br /><br />
+<h2>Students final grade per course</h2>
+<table border="1" id="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>email</th>
+            <th>f.name</th>
+            <th>l.name</th>
+            <th>course</th>
+            <th>grade(/20)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for grade in grades_table %}
+        <tr>
+            <th>{{ loop.index }}</th>
+            <th>{{ grade[0] }}</th>
+            <th>{{ grade[1] }}</th>
+            <th>{{ grade[2] }}</th>
+            <th>{{ grade[3] }}</th>
+            <th>{{ grade[4] }}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
