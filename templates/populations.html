@@ -1,15 +1,12 @@
-{% extends 'base.html' %} 
-
-
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 
 <title>Populations</title>
 <h1>Populaions - {{ cpy[0] }} {{ cpy[1][0] }}{{ cpy[2] }}</h1>
 
-{% endblock %} 
-
-
-{% block body %}
+<a href="/index">
+  <button>Home</button>
+</a>
+{% endblock %} {% block body %}
 <br /><br /><br /><br /><br /><br /><br /><br />
 <h2>Students</h2>
 <table border="1" id="table">
@@ -48,7 +45,13 @@
     {% for course in courses_table %}
     <tr>
       <th>{{ loop.index }}</th>
-      <th><u><a href="/grades/{{ cpy[2] }}/{{ cpy[1] }}/{{ cpy[0] }}">{{ course[0] }}</a></u></th>
+      <th>
+        <u
+          ><a href="/grades/{{ cpy[2] }}/{{ cpy[1] }}/{{ cpy[0] }}"
+            >{{ course[0] }}</a
+          ></u
+        >
+      </th>
       <th>{{ course[1] }}</th>
     </tr>
     {% endfor %}
