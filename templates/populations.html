@@ -26,7 +26,7 @@
     {% for student in student_table %}
     <tr>
       <th>{{ loop.index }}</th>
-      <th><u><a href="">{{ student[0] }}</a></u></th>
+      <th>{{ student[0] }}</th>
       <th>{{ student[1] }}</th>
       <th>{{ student[2] }}</th>
       <th>{{ student[3] }}</th>
@@ -48,7 +48,7 @@
     {% for course in courses_table %}
     <tr>
       <th>{{ loop.index }}</th>
-      <th>{{ course[0] }}</th>
+      <th><u><a href="/grades/{{ cpy[2] }}/{{ cpy[1] }}/{{ cpy[0] }}">{{ course[0] }}</a></u></th>
       <th>{{ course[1] }}</th>
     </tr>
     {% endfor %}
