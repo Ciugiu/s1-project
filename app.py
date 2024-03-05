@@ -116,7 +116,7 @@ def grades(year, period, course):
 
     grades_table = []
     for item in raw_grades_table:
-        new_item = (item[0], item[1], item[2], item[3], item[4])
+        new_item = (item[0], item[1], item[2], item[3], round(item[4]))
         grades_table.append(new_item)
 
     # This is the gades you want to redirect to
@@ -124,4 +124,4 @@ def grades(year, period, course):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
