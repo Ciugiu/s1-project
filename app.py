@@ -3,29 +3,7 @@ from src import data_request, first_chart, second_chart
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        # Get the connection details from the form
-        host = request.form.get('host')
-        user = request.form.get('user')
-        password = request.form.get('password')
-        database = request.form.get('database')
-
-        # Save the connection details in a file
-        with open('src/data_request_ids.py', 'w') as f:
-            f.write(f"host = '{host}'\n")
-            f.write(f"user = '{user}'\n")
-            f.write(f"password = '{password}'\n")
-            f.write(f"database = '{database}'\n")
-
-        # Redirect to the home page
-        return redirect(url_for('index'))
-
-    return render_template('login.html')
-
-
-@app.route('/index')
+@app.route('/')
 def index():
     # Get the data for active_population
     with open('src/sql_scripts/active_population.sql', 'r') as file:
